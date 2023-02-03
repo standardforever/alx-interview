@@ -5,21 +5,19 @@ Alx interview question
 
 
 def canUnlockAll(boxes):
-    '''
-    Check boxes for key to unlock the next box
-    '''
-    if len(boxes[0]) == 0:
-        return (False)
-    keys = {0}
-    size = len(boxes)
-    visited = {0}
-    keys = keys.union(boxes[0])
-    while size > 0:
-        for i in keys:
-            if i in visited:
-                continue
-            keys = keys.union(boxes[i])
-            visited.add(i)
-        size -= 1
-    return len(keys) == len(boxes)
+    """
+     a method that determines if all the boxes can be opened.
+    :param boxes:
+    :return: True or False
+    """
+    if not boxes or type(boxes) is not list:
+        return False
 
+    unlocked = [0]
+    for n in unlocked:
+        for key in boxes[n]:
+            if key not in unlocked and key < len(boxes):
+                unlocked.append(key)
+    if len(unlocked) == len(boxes):
+        return True
+    return False
