@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Interview question"""
 
-def minOperation(n):
+def minOperations(n):
     """find total num of operarion performed"""
     if not isinstance(n, int) or n <= 1:
         return 0
